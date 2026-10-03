@@ -1,0 +1,4 @@
+invoiceNumber,vendorName,invoiceDate,taxableAmount,taxAmount,totalAmount
+INV001,ABC Traders,2026-09-01,10000,1800,11800
+INV002,XYZ Supplies,2026-09-02,5000,900,5900
+INV003,Fresh Mart,2026-09-03,2000,360,2360

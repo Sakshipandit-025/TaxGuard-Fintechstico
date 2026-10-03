@@ -1,0 +1,4 @@
+transactionId,invoiceNumber,amount
+TXN001,INV001,11800
+TXN002,INV002,5800
+TXN003,INV004,2360
