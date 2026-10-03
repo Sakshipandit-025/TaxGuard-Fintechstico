@@ -129,27 +129,30 @@ function renderLogin() {
   const container = document.getElementById('page-content');
   container.innerHTML = `
     <div class="login-screen-wrap">
-      <!-- Left Hero (Matches Mockup Screen 1) -->
+      <!-- Left Hero (Blue White Theme) -->
       <div class="login-left-hero">
         <div style="display:flex; align-items:center; gap:12px;">
-          <div class="logo-icon">TG</div>
+          <div class="logo-icon" style="background:#FFFFFF; color:#1E60F2; font-weight:800; box-shadow:0 3px 8px rgba(0,0,0,0.15);">TG</div>
           <div class="logo-text-wrap">
-            <span class="logo-text">TaxGuard</span>
-            <span class="logo-sub">Intelligent Tax Reconciliation</span>
+            <span class="logo-text" style="color:#FFFFFF; font-size:20px;">TaxGuard</span>
+            <span class="logo-sub" style="color:rgba(255,255,255,0.85); font-size:11px;">Intelligent Tax Reconciliation</span>
           </div>
         </div>
 
         <div style="max-width: 440px;">
-          <h1 style="font-size: 40px; line-height: 1.15; font-weight: 800; color: #0F172A; margin: 30px 0 16px; letter-spacing: -0.03em;">
+          <div style="display:inline-flex; align-items:center; gap:6px; padding:4px 12px; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.3); border-radius:9999px; color:#FFFFFF; font-size:12px; font-weight:600; margin-bottom:18px;">
+            🛡️ AI Compliance Engine
+          </div>
+          <h1 style="font-size: 42px; line-height: 1.15; font-weight: 800; color: #FFFFFF; margin: 0 0 16px; letter-spacing: -0.03em;">
             Automate.<br/>Detect.<br/>Ensure Compliance.
           </h1>
-          <p style="font-size: 15px; color: #64748B; line-height: 1.6;">
+          <p style="font-size: 15.5px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
             Reconcile your financial records with confidence using AI.
           </p>
         </div>
 
-        <div style="font-size: 12px; color: #94A3B8;">
-          © 2025 TaxGuard Enterprise
+        <div style="font-size: 12px; color: rgba(255, 255, 255, 0.75);">
+          © 2025 TaxGuard Enterprise · Intelligent Tax Reconciliation
         </div>
       </div>
 
@@ -161,37 +164,40 @@ function renderLogin() {
             <button class="login-tab-btn ${isSignupMode ? 'active' : ''}" onclick="toggleAuthMode(true)">Create Account</button>
           </div>
 
-          <div style="margin-bottom: 24px;">
+          <div style="margin-bottom: 22px;">
             <h2 style="font-size: 22px; font-weight: 700; color: #0F172A; margin-bottom: 4px;">
               ${!isSignupMode ? 'Sign in to your account' : 'Create an Account'}
             </h2>
+            <p style="font-size: 13px; color: #64748B;">
+              ${!isSignupMode ? 'Enter your credentials to access your financial dashboard' : 'Fill in your details to create your workspace account'}
+            </p>
           </div>
 
           <form id="auth-form">
             ${isSignupMode ? `
               <div class="form-group">
                 <label class="form-label">Full Name</label>
-                <input type="text" id="reg-name" class="form-control" placeholder="Enter your full name" required>
+                <input type="text" id="reg-name" class="form-control" placeholder="Enter your full name" required style="border:1.5px solid #DBEAFE; border-radius:8px;">
               </div>
             ` : ''}
 
             <!-- 1-2 Demo Inputs -->
             <div class="form-group">
               <label class="form-label">Email</label>
-              <input type="email" id="auth-email" class="form-control" value="${!isSignupMode ? 'user@company.com' : ''}" placeholder="you@company.com" required>
+              <input type="email" id="auth-email" class="form-control" value="${!isSignupMode ? 'user@company.com' : ''}" placeholder="you@company.com" required style="border:1.5px solid #DBEAFE; border-radius:8px;">
             </div>
 
             <div class="form-group">
               <label class="form-label">Password</label>
               <div style="position:relative;">
-                <input type="password" id="auth-password" class="form-control" value="${!isSignupMode ? 'password123' : ''}" placeholder="Enter your password" required>
+                <input type="password" id="auth-password" class="form-control" value="${!isSignupMode ? 'password123' : ''}" placeholder="Enter your password" required style="border:1.5px solid #DBEAFE; border-radius:8px;">
                 <span onclick="togglePasswordVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); cursor:pointer; color:var(--color-text-muted); font-size:13px;">👁</span>
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label">Role</label>
-              <select id="${isSignupMode ? 'reg-role' : 'auth-role'}" class="input-select" style="width:100%; height:40px; border-radius:6px; font-weight:500;">
+              <select id="${isSignupMode ? 'reg-role' : 'auth-role'}" class="input-select" style="width:100%; height:40px; border-radius:8px; border:1.5px solid #DBEAFE; font-weight:500;">
                 <option value="USER">User (Finance Specialist)</option>
                 <option value="AUDITOR">Auditor (Compliance Reviewer)</option>
                 <option value="ADMIN">Admin (System Operations)</option>
@@ -207,19 +213,22 @@ function renderLogin() {
               </div>
             ` : ''}
 
-            <button type="submit" id="btn-submit-auth" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 14.5px; font-weight: 600; border-radius: 8px;">
+            <button type="submit" id="btn-submit-auth" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 14.5px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(30, 96, 242, 0.3);">
               ${!isSignupMode ? 'Sign In' : 'Create Account'}
             </button>
 
-            <!-- 1-2 Demo Fill Shortcuts -->
+            <!-- Quick Demo Fill Shortcuts -->
             ${!isSignupMode ? `
-              <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid #F1F5F9; font-size:12px; color:var(--color-text-muted);">
-                <span style="font-weight:500;">Demo:</span>
-                <button type="button" class="btn btn-secondary btn-sm" style="padding:4px 10px; font-size:11.5px; border-radius:6px;" onclick="fillDemoInput('USER')">
+              <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:18px; padding-top:14px; border-top:1px solid #EFF6FF; font-size:12px; color:var(--color-text-muted);">
+                <span style="font-weight:500; color:#64748B;">Quick Demo:</span>
+                <button type="button" class="btn btn-secondary btn-sm" style="padding:4px 10px; font-size:11.5px; border-radius:6px; background:#EFF6FF; border:1px solid #BFDBFE; color:#1E60F2; font-weight:600;" onclick="fillDemoInput('USER')">
                   User Demo
                 </button>
-                <button type="button" class="btn btn-secondary btn-sm" style="padding:4px 10px; font-size:11.5px; border-radius:6px;" onclick="fillDemoInput('AUDITOR')">
+                <button type="button" class="btn btn-secondary btn-sm" style="padding:4px 10px; font-size:11.5px; border-radius:6px; background:#EFF6FF; border:1px solid #BFDBFE; color:#1E60F2; font-weight:600;" onclick="fillDemoInput('AUDITOR')">
                   Auditor Demo
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" style="padding:4px 10px; font-size:11.5px; border-radius:6px; background:#EFF6FF; border:1px solid #BFDBFE; color:#1E60F2; font-weight:600;" onclick="fillDemoInput('ADMIN')">
+                  Admin Demo
                 </button>
               </div>
             ` : ''}
@@ -270,6 +279,11 @@ function fillDemoInput(role) {
     if (passInput) passInput.value = 'password123';
     if (roleSelect) roleSelect.value = 'AUDITOR';
     showToast('Loaded Auditor demo credentials', 'info');
+  } else if (role === 'ADMIN') {
+    if (emailInput) emailInput.value = 'admin@company.com';
+    if (passInput) passInput.value = 'password123';
+    if (roleSelect) roleSelect.value = 'ADMIN';
+    showToast('Loaded Admin demo credentials', 'info');
   }
 }
 
