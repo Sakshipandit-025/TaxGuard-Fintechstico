@@ -150,10 +150,6 @@ function renderLogin() {
             Reconcile your financial records with confidence using AI.
           </p>
         </div>
-
-        <div style="font-size: 12px; color: rgba(255, 255, 255, 0.75);">
-          © 2025 TaxGuard Enterprise · Intelligent Tax Reconciliation
-        </div>
       </div>
 
       <!-- Right Form Card (Matches Mockup Screen 1) -->
