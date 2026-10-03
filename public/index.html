@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaxGuard – Intelligent Tax Reconciliation</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js for the one dashboard chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar" style="display: none;">
+      <div class="sidebar-header">
+        <div class="logo-icon">TG</div>
+        <div class="logo-text">TaxGuard</div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <!-- Rendered dynamically by user role -->
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="role-badge-sidebar">
+          <span>Environment</span>
+          <strong style="color:var(--color-success);">System Online</strong>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper" id="main-wrapper" style="margin-left: 0;">
+      <!-- Top Header -->
+      <header class="top-header" id="top-header" style="display: none;">
+        <div class="search-box">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input type="text" placeholder="Search invoices, transactions..." onkeypress="if(event.key === 'Enter') { currentSearch = this.value; router.navigate('results'); }">
+        </div>
+
+        <div class="top-actions">
+          <button class="bell-icon-btn" title="Notifications" onclick="showToast('No new unread alerts.', 'info')">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+          </button>
+
+          <div class="user-profile" title="Click to view role options" onclick="toggleRoleSwitchModal()">
+            <div class="user-avatar" id="header-user-avatar">U</div>
+            <div class="user-info">
+              <span class="user-name" id="header-user-name">User</span>
+              <span class="user-role-label" id="header-user-role">Role</span>
+            </div>
+          </div>
+          <button class="btn-logout" onclick="api.logout()">Sign Out</button>
+        </div>
+      </header>
+
+      <!-- Main Dynamic View Container -->
+      <main id="page-content">
+        <!-- Views rendered by router -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Application Scripts (Vanilla JS, No React) -->
+  <script src="/js/store.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
